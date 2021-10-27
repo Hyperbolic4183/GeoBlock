@@ -1,13 +1,12 @@
 
   Blockly.Blocks['connectableline'] = {
     init: function() {
+      this.appendDummyInput()
+          .appendField("直線");
       this.appendValueInput("point1")
           .setCheck(null);
       this.appendValueInput("point2")
-          .setCheck(null)
-          .appendField("と");
-      this.appendDummyInput()
-          .appendField("を通る直線");
+          .setCheck(null);
       this.setInputsInline(true);
       this.setOutput(true, null);
       this.setColour(315);

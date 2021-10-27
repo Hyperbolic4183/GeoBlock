@@ -6,13 +6,12 @@
       this.appendValueInput("point1")
           .setCheck(null);
       this.appendValueInput("point2")
-          .setCheck(null)
-          .appendField("と");
+          .setCheck(null);
       this.appendDummyInput()
-          .appendField("における垂直二等分線");
+          .appendField("の垂直二等分線");
       this.setInputsInline(true);
       this.setOutput(true, null);
-      this.setColour(315);
+      this.setColour(285);
    this.setTooltip("");
    this.setHelpUrl("");
     }

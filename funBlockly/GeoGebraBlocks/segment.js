@@ -1,20 +1,19 @@
 
-  Blockly.Blocks['connectablesegment'] = {
-    init: function() {
-      this.appendValueInput("point1")
-          .setCheck(null);
-      this.appendValueInput("point2")
-          .setCheck(null)
-          .appendField("と");
-      this.appendDummyInput()
-          .appendField("を通る線分");
-      this.setInputsInline(true);
-      this.setOutput(true, null);
-      this.setColour(315);
-   this.setTooltip("");
-   this.setHelpUrl("");
-    }
-  };
+ Blockly.Blocks['connectablesegment'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("線分");
+    this.appendValueInput("point1")
+        .setCheck(null);
+    this.appendValueInput("point2")
+        .setCheck(null);
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(315);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
   
   Blockly.JavaScript['connectablesegment'] = function(block) {
     var value_point1 = Blockly.JavaScript.valueToCode(block, 'point1', Blockly.JavaScript.ORDER_ATOMIC);
@@ -27,7 +26,8 @@
     var lastCharacterSlicedPoint2 = firstCharacterSlicedPoint2.slice(0,-1);
 
     // TODO: Assemble JavaScript into code variable.
-    var code = 'Segment(' + lastCharacterSlicedPoint1 + ',' + lastCharacterSlicedPoint2 + ')';
+    var code = `${Segment(lastCharacterSlicedPoint1,lastCharacterSlicedPoint2)}`;
+    console.log(code);
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.JavaScript.ORDER_NONE];
   };
@@ -75,7 +75,7 @@
           .appendField("の線分");
       this.setInputsInline(true);
       this.setOutput(true, null);
-      this.setColour(35);
+      this.setColour(315);
    this.setTooltip("");
    this.setHelpUrl("");
     }
@@ -88,7 +88,7 @@
     var lastCharacterSlicedPoint1 = firstCharacterSlicedPoint1.slice(0,-1);
     
 
-    var code = 'Segment(' + lastCharacterSlicedPoint1 + ',' + value_length + ')';
+    var code = `${Segment(' + lastCharacterSlicedPoint1 + ',' + value_length + ')}`;
     console.log(code);
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.JavaScript.ORDER_NONE];

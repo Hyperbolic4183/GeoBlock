@@ -1,16 +1,19 @@
-Blockly.Blocks["connectablecircle"] = {
-  init: function () {
-    this.appendValueInput("pointOfCenter").setCheck(null);
+Blockly.Blocks['connectablecircle'] = {
+  init: function() {
+    this.appendValueInput("pointOfCenter")
+        .setCheck(null)
+        .appendField("中心");
     this.appendValueInput("radius")
-      .setCheck(null)
-      .appendField("を中心とし半径");
-    this.appendDummyInput().appendField("の円");
+        .setCheck(null)
+        .appendField("半径");
+    this.appendDummyInput()
+        .appendField("の円");
     this.setInputsInline(true);
-    this.setOutput(true, null);
+    this.setOutput(true, "String");
     this.setColour(150);
-    this.setTooltip("");
-    this.setHelpUrl("");
-  },
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
 };
 Blockly.JavaScript["connectablecircle"] = function (block) {
   var value_pointofCenter = Blockly.JavaScript.valueToCode(
@@ -35,17 +38,22 @@ Blockly.JavaScript["connectablecircle"] = function (block) {
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 //2点を指定する円
-Blockly.Blocks["connectablecircledefinedbytwopoints"] = {
-  init: function () {
-    this.appendValueInput("center").setCheck(null);
-    this.appendValueInput("point").setCheck(null).appendField("を中心とし");
-    this.appendDummyInput().appendField("を通る円");
+Blockly.Blocks['connectablecircledefinedbytwopoints'] = {
+  init: function() {
+    this.appendValueInput("center")
+        .setCheck(null)
+        .appendField("中心");
+    this.appendValueInput("point")
+        .setCheck(null)
+        .appendField("で");
+    this.appendDummyInput()
+        .appendField("を通る円");
     this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour(150);
-    this.setTooltip("");
-    this.setHelpUrl("");
-  },
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
 };
 Blockly.JavaScript["connectablecircledefinedbytwopoints"] = function (block) {
   var value_center = Blockly.JavaScript.valueToCode(

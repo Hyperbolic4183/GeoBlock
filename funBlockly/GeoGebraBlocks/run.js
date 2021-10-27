@@ -15,19 +15,22 @@ function evalInputSelectedColor(strInput) {
   if (strInputHead == "Inter") {
     console.log("Interだった");
     if (object.length == 1) {
-      ggbApplet.setLabelVisible(object,false);
+      ggbApplet.setLabelVisible(object,true);
     } else {
       ggbApplet.setLabelVisible(object[0],true);
        ggbApplet.setLabelVisible(object[2],true);
     }  
   } else {
     console.log('Rotateだった');
-    ggbApplet.setLabelVisible(object,false);
+    ggbApplet.setLabelVisible(object,true);
   }
 }
 function evalInputPoint(strInput) {
   //strInputはCみたいな点の名前
+  
   var object = pointOnObjectArray['point'][strInput];
+  ggbApplet.setColor(strInput, 123,12,230);
+  ggbApplet.setLabelVisible(strInput,true);
   if (pointOnObjectArray['object'][object]['checker']) {
     //引数の点が既に存在する
     pointOnObjectArray['object'][object]['checker'] = false;
@@ -39,6 +42,8 @@ function evalInputPoint(strInput) {
 
     for (var i=0; i<pointOnObjectArray['object'][[object]].length; i++) {
       console.log('点の名前は'+pointOnObjectArray['object'][[object]][i]);
+      
+      ggbApplet.setColor(pointOnObjectArray['object'][[object]][i], 123,12,230);
       ggbApplet.setLabelVisible(pointOnObjectArray['object'][[object]][i],true);
     }
   }
@@ -72,7 +77,10 @@ Blockly.JavaScript["runscript"] = function (block) {
   } else if (inputHead.length == 1) {
     console.log('オブジェクト上の点が実行された');
     evalInputPoint(lastCharacterSlicedInput);
+
+    //点が1つの時もこれが実行される
   } else {
     evalInput(lastCharacterSlicedInput);
+    console.log("hoge");
   }
 };
